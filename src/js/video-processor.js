@@ -10,10 +10,9 @@
             colourMatrix:  [
                 // Greyscale luma.
                 [
-                    0.2126, 0.7152, 0.0722, 0, 0,
-                    0.2126, 0.7152, 0.0722, 0, 0,
-                    0.2126, 0.7152, 0.0722, 0, 0,
-                    0, 0, 0, 1, 0
+                    0.2126, 0.7152, 0.0722,
+                    0.2126, 0.7152, 0.0722,
+                    0.2126, 0.7152, 0.0722
                 ]
             ]
         },
@@ -99,17 +98,14 @@
 
         uniforms: {
             colourMatrix: {
-                type: "fv",
-                // TODO: Currently Aconite requires all array-typed uniforms
-                // (i.e. xfv uniforms) to explicitly declare their dimensions,
-                // hence the need to wrap the colour matrix in an container array.
-                value: [
+                type: "Matrix3fv",
+                transpose: false,
+                values: [
                     // Identity.
                     [
-                        1, 0, 0, 0, 0,
-                        0, 1, 0, 0, 0,
-                        0, 0, 1, 0, 0,
-                        0, 0, 0, 1, 0
+                        1, 0, 0,
+                        0, 1, 0,
+                        0, 0, 1
                     ]
                 ]
             }
