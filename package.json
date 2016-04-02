@@ -26,6 +26,7 @@
         "grunt-contrib-watch": "1.0.0"
     },
     "dependencies": {
-        "aconite": "colinbdclark/aconite#single-video-playback-processing"
+        "aconite": "colinbdclark/aconite#single-video-playback-processing",
+        "gl-matrix": "2.3.2"
     }
 }
