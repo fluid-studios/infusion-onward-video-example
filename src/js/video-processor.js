@@ -3,7 +3,7 @@
 (function () {
     "use strict";
 
-    fluid.defaults("aconite.test.singleLayerProcessor", {
+    fluid.defaults("onward.videoProcessor", {
         gradeNames: ["aconite.animator"],
 
         model: {
@@ -30,12 +30,12 @@
 
         components: {
             layer: {
-                type: "aconite.test.singleLayerProcessor.videoLayer",
-                container: "{singleLayerProcessor}.container"
+                type: "onward.videoProcessor.videoLayer",
+                container: "{videoProcessor}.container"
             },
 
             glRenderer: {
-                type: "aconite.test.singleLayerProcessor.glRenderer"
+                type: "onward.videoProcessor.glRenderer"
             }
         },
 
@@ -56,7 +56,7 @@
         }
     });
 
-    fluid.defaults("aconite.test.singleLayerProcessor.videoPlayer", {
+    fluid.defaults("onward.videoProcessor.videoPlayer", {
         gradeNames: "aconite.videoPlayer.nativeElement",
 
         model: {
@@ -64,7 +64,7 @@
         }
     });
 
-    fluid.defaults("aconite.test.singleLayerProcessor.videoLayer", {
+    fluid.defaults("onward.videoProcessor.videoLayer", {
         gradeNames: ["aconite.compositableVideo.layer", "fluid.viewComponent"],
 
         components: {
@@ -78,7 +78,7 @@
             },
 
             sourcePlayer: {
-                type: "aconite.test.singleLayerProcessor.videoPlayer",
+                type: "onward.videoProcessor.videoPlayer",
                 container: "{videoLayer}.dom.video"
             }
         },
@@ -88,7 +88,7 @@
         }
     });
 
-    fluid.defaults("aconite.test.singleLayerProcessor.glRenderer", {
+    fluid.defaults("onward.videoProcessor.glRenderer", {
         gradeNames: "aconite.glRenderer.singleLayer",
 
         shaders: {
