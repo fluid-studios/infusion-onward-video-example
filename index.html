@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Infusion Onward Video Processor</title>
+
+        <link rel="stylesheet" href="node_modules/aconite/src/ui/css/stage.css" type="text/css" />
+
+        <script src="node_modules/aconite/dist/aconite-all.js"></script>
+        <script src="src/js/video-processor.js"></script>
+    </head>
+    <body>
+        <div class="aconite-video-container">
+            <canvas class="aconite-animator-canvas" width="853" height="480">
+                <video src="node_modules/aconite/tests/videos/big-buck-bunny-trailer-480p.mp4" />
+            </canvas>
+        </div>
+
+        <script>
+            window.singleLayerTest = aconite.test.singleLayerProcessor(".aconite-video-container");
+        </script>
+    </body>
+</html>
