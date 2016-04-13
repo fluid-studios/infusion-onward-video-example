@@ -1,0 +1,58 @@
+/* CSS due to Justin Hubbard at http://webdesign.tutsplus.com/articles/quicktip-pressable-css3-social-buttons--webdesign-3330 - 
+ * Unknown Licence
+ */
+
+
+body {
+    color: #ccc;
+}
+
+.centre {
+    text-align: center;
+}
+
+.button-container {
+    position: absolute;
+}
+
+.button-container span {
+    display: block;
+}
+
+.button {
+    margin: 25px;    
+}
+
+.button a {
+    text-decoration: none;
+    font-family:font-family: 'Arvo', arial, serif;
+    color:#333333;
+    font-size:16px;
+    background: #ffffff; /* Old browsers */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#9c9c9c)); /* Chrome,Safari4+ */
+
+    background: linear-gradient(top, #ffffff 0%,#dfdfdf 100%); /* W3C */
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: 0 3px 4px -1px #464646;
+    -webkit-box-shadow: 0 3px 4px -1px #464646;
+    box-shadow: 0 3px 4px -1px #464646;
+    padding: 6px 12px;  
+}
+
+.button a:hover, .button.pressed a {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dfdfdf), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #dfdfdf 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #dfdfdf 0%,#ffffff 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, #dfdfdf 0%,#ffffff 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dfdfdf', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    background: linear-gradient(top, #dfdfdf 0%,#ffffff 100%); /* W3C */
+    box-shadow: 0 1px 1px 0 #AFAFAF;
+}
+
+.button.pressed a {
+    -moz-box-shadow: 2px 3px 2px -1px #464646 inset, 0 1px 1px 0 #666666;
+    -webkit-box-shadow: 2px 3px 2px -1px #464646 inset, 0 1px 1px 0 #666666;
+    box-shadow: 2px 3px 2px -1px #464646 inset, 0 1px 1px 0 #666666;
+}

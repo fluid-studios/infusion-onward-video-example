@@ -5,21 +5,49 @@
         <title>Infusion Onward Video Processor</title>
 
         <link rel="stylesheet" href="node_modules/aconite/src/ui/css/stage.css" type="text/css" />
+        <link rel="stylesheet" href="src/css/buttons.css" type="text/css" />
 
         <script src="node_modules/aconite/dist/aconite-all.js"></script>
         <script src="node_modules/gl-matrix/dist/gl-matrix.js"></script>
 
+        <script src="src/js/button.js"></script>
+        <script src="src/js/onward.js"></script>
+        <script src="src/js/colourblind.js"></script> <!-- demonstration of the PROGRAM ADDITION OPERATOR - see paper -->
+        <script src="src/js/australian.js"></script>
+        <script src="src/js/antarctic.js"></script>
         <script src="src/js/video-processor.js"></script>
     </head>
     <body>
-        <div class="aconite-video-container">
-            <canvas class="aconite-animator-canvas" width="853" height="480">
-                <video src="node_modules/aconite/tests/videos/big-buck-bunny-trailer-480p.mp4" />
+    <h1 class="centre">Infusion Onward Video Processor Example</h1>
+    This example application accompanies our paper submitted for Onward '16 (<a href="https://github.com/amb26/papers/tree/master/onward-2016">PDF of paper</a> is in github). The application demonstrates two major structural points - 
+    <ul><li>That the code performing the three adaptations is isolated from the main application, as well as mutually isolated (see the implementation files <a href="src/js/colourblind.js">colourblind.js</a>, 
+    <a href="src/js/src/js/australian.js">src/js/australian.js</a>
+     and <a href="src/js/antarctic.js">antarctic.js</a>). These are combined using the <strong>program addition operator</strong><img style="vertical-align:middle" width="25" height="25" src="src/images/circleplus.png" alt="circleplus" />(see paper section 5.1)
+    <li>That the application runs at framerate with small demands on everyday equipment, with communication between the separated processes (JavaScript and a WebGL shader) mediated by a state transfer idiom (see paper section 7.2)
+    </li>
+    </ul> 
+    <div class="button-container">
+	    <span class="button colourblind">
+	        <a href="#">Colour Blind</a>
+	    </span>
+	     
+	    <span class="button australian">
+	        <a href="#">Australian</a>
+	    </span>
+	     
+	    <span class="button antarctic">
+	        <a href="#">Antarctic</a>
+	    </span>
+    </div>
+        <div class="onward-video-container aconite-video-container">
+            <canvas class="aconite-animator-canvas" width="1280" height="720">
             </canvas>
+            <video src="Nora the Piano Cat 1-19-16.mp4">
+            </video>
         </div>
 
         <script>
-            window.videoProcessor = onward.videoProcessor(".aconite-video-container");
+            onward.videoProcessor(".onward-video-container");
         </script>
     </body>
 </html>
