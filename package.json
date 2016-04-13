@@ -8,9 +8,12 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git://github.com/fluid-studios/infusion-onwards-video-processor.git"
+        "url": "git://github.com/fluid-studios/infusion-onward-video-processor.git"
     },
-    "bugs": "http://github.com/fluid-studios/infusion-onwards-video-processor/issues",
+    "scripts": {
+        "postinstall": "grunt copydist"
+    },
+    "bugs": "http://github.com/fluid-studios/infusion-onward-video-processor/issues",
     "license": "BSD-3-Clause",
     "keywords": [
         "video",
