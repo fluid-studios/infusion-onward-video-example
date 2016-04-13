@@ -23,11 +23,18 @@ module.exports = function(grunt) {
                     spawn: false
                 }
             }
-        }
+        },
+    });
+
+    grunt.registerTask("copydist", "Copy distribution files", function () {
+        grunt.file.copy("node_modules/aconite/dist/aconite-all.js", "dist/aconite-all.js");
+        grunt.file.copy("node_modules/gl-matrix/dist/gl-matrix.js", "dist/gl-matrix.js");
+        grunt.file.copy("node_modules/aconite/src/ui/css/stage.css", "dist/stage.css");
     });
 
     grunt.loadNpmTasks("grunt-contrib-jshint");
     grunt.loadNpmTasks("grunt-contrib-watch");
+    grunt.loadNpmTasks("grunt-contrib-copy");
 
     grunt.registerTask("default", ["jshint"]);
 };
