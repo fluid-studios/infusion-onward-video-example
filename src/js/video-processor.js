@@ -97,7 +97,7 @@
 
         shaders: {
             fragment: "src/shaders/video-transform.frag",
-            vertex: "node_modules/aconite/src/shaders/stageVertexShader.vert"
+            vertex: "dist/stageVertexShader.vert"
         },
 
         uniforms: {

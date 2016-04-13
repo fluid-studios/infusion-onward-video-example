@@ -30,6 +30,7 @@ module.exports = function(grunt) {
         grunt.file.copy("node_modules/aconite/dist/aconite-all.js", "dist/aconite-all.js");
         grunt.file.copy("node_modules/gl-matrix/dist/gl-matrix.js", "dist/gl-matrix.js");
         grunt.file.copy("node_modules/aconite/src/ui/css/stage.css", "dist/stage.css");
+        grunt.file.copy("node_modules/aconite/src/shaders/stageVertexShader.vert", "dist/stageVertexShader.vert");
     });
 
     grunt.loadNpmTasks("grunt-contrib-jshint");
