@@ -15,7 +15,8 @@
     });
     
     fluid.defaults("onward.rendererAdaptation.yInversion", {
-        coordinateMatrix: [1, 0,  0, -1]
+        gradeNames: "fluid.component",
+        coordinateMatrix: fluid.freezeRecursive([1, 0,  0, -1])
     });
 
     fluid.defaults("onward.contexts.southernHemisphere", {

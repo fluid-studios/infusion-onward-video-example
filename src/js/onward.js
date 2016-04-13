@@ -2,11 +2,12 @@
 
 (function () {
     "use strict";
+    fluid.setLogging(true);
     
     fluid.registerNamespace("onward");
     
     onward.identityMat3 = function () {
-        return mat3.identity(mat3.create());
+        return mat3.create();
     };
     
     onward.toggleAdaptationContext = function (state, gradeName) {
@@ -51,7 +52,7 @@
     onward.multiplyMatrices = function (matrices, transformSpec) {
         var transform = transformSpec ? fluid.getGlobalValue(transformSpec) : fluid.identity;
 
-        var togo = fluid.accumulate(matrices, function (accum, extra) {
+        var togo = fluid.accumulate(matrices, function (extra, accum) {
             return mat3.multiply(accum, accum, transform(extra));
         }, onward.identityMat3());
         return togo;
@@ -74,7 +75,7 @@
     fluid.defaults("onward.imageRenderer", {
         // TODO: The fluid.createOnContextChange grade is ignored (FLUID-5884) and we mock up its effect through the createOnEvent annotation in the parent
         gradeNames: ["fluid.modelComponent", "fluid.contextAware", "fluid.createOnContextChange"],
-        coordinateMatrix: onward.identityMat3(), // TODO: don't use expanders here because of impossible interaction with mergePolicy
+        coordinateMatrix: [1, 0,  0, 1], // TODO: don't use expanders here because of impossible interaction with mergePolicy
         colourMatrix: onward.identityMat3(),
 
         mergePolicy: {

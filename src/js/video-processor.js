@@ -12,11 +12,13 @@
         gradeNames: ["aconite.animator"],      
 
         model: {
-            colourMatrix: "@expand:onward.identityMat3()"
+            colourMatrix: "@expand:onward.identityMat3()",
+            coordinateMatrix: "@expand:onward.identityMat3()"
         },
 
         uniformModelMap: {
-            colourMatrix: "colourMatrix"
+            colourMatrix: "colourMatrix",
+            coordinateMatrix: "coordinateMatrix"
         },
 
         invokers: {
@@ -36,7 +38,8 @@
                 createOnEvent: "onContextChange",
                 options: {
                     listeners: {
-                        "onCreate.pushColours": "onward.pushMatrix({onward.videoProcessor}, colourMatrix, {that}.colourMatrix)" 
+                        "onCreate.pushColours":     "onward.pushMatrix({onward.videoProcessor}, colourMatrix, {that}.colourMatrix)",
+                        "onCreate.pushCoordinates": "onward.pushMatrix({onward.videoProcessor}, coordinateMatrix, {that}.coordinateMatrix)" 
                     }
                 }
             }
@@ -70,6 +73,14 @@
     
     fluid.defaults("onward.videoProcessor.videoLayer", {
         gradeNames: ["aconite.compositableVideo.layer", "fluid.viewComponent"],
+        
+        // Overriding defaults in aconite.texture
+        parameters: {
+            "TEXTURE_WRAP_S": "CLAMP_TO_EDGE",
+            "TEXTURE_WRAP_T": "CLAMP_TO_EDGE",
+            "TEXTURE_MIN_FILTER": "LINEAR",
+            "TEXTURE_MAG_FILTER": "LINEAR"
+        },
 
         components: {
             source: {
@@ -102,6 +113,12 @@
 
         uniforms: {
             colourMatrix: {
+                type: "Matrix3fv",
+                transpose: false,
+                // TODO: strange requirement both to duplicate this as well as to wrap it in an array
+                values: [onward.identityMat3()]
+            },
+            coordinateMatrix: {
                 type: "Matrix3fv",
                 transpose: false,
                 // TODO: strange requirement both to duplicate this as well as to wrap it in an array

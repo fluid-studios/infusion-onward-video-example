@@ -16,6 +16,7 @@
     
     // Standard luma coefficients from https://en.wikipedia.org/wiki/Luma_(video)
     fluid.defaults("onward.rendererAdaptation.monochrome", {
+        gradeNames: "fluid.component",
         colourMatrix: [0.2126, 0.7152, 0.0722,  0.2126, 0.7152, 0.0722,  0.2126, 0.7152, 0.0722]
     });
     

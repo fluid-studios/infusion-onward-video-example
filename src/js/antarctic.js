@@ -20,7 +20,9 @@
     });
 
     fluid.defaults("onward.rendererAdaptation.doubleScale", {
-        coordinateMatrix: [2, 0,  0, 2]
+        gradeNames: "fluid.component",
+        // TODO: if fluid.component is omitted here, the defaults become corrupted in place
+        coordinateMatrix: [0.5, 0,  0, 0.5]
     });
     
     fluid.defaults("onward.antarctic.videoProcessor", {
