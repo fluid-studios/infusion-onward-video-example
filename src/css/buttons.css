@@ -2,9 +2,9 @@
  * Unknown Licence
  */
 
-
 body {
     color: #ccc;
+    font-family: arial;
 }
 
 .centre {
@@ -23,15 +23,19 @@ body {
     margin: 25px;    
 }
 
+.stream-label {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1280px;
+    text-align: left;
+}
+
 .button a {
     text-decoration: none;
     font-family:font-family: 'Arvo', arial, serif;
     color:#333333;
     font-size:16px;
-    background: #ffffff; /* Old browsers */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#9c9c9c)); /* Chrome,Safari4+ */
-
-    background: linear-gradient(top, #ffffff 0%,#dfdfdf 100%); /* W3C */
+    background: linear-gradient(to top, #ffffff 0%,#9c9c9c 100%); /* W3C */
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
@@ -42,12 +46,7 @@ body {
 }
 
 .button a:hover, .button.pressed a {
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dfdfdf), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #dfdfdf 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #dfdfdf 0%,#ffffff 100%); /* Opera11.10+ */
-    background: -ms-linear-gradient(top, #dfdfdf 0%,#ffffff 100%); /* IE10+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dfdfdf', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-    background: linear-gradient(top, #dfdfdf 0%,#ffffff 100%); /* W3C */
+    background: linear-gradient(to top, #dfdfdf 0%,#ffffff 100%); /* W3C */
     box-shadow: 0 1px 1px 0 #AFAFAF;
 }
 

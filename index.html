@@ -19,13 +19,15 @@
     </head>
     <body>
     <h1 class="centre">Infusion Onward Video Processor Example</h1>
-    This example application accompanies our paper submitted for Onward '16 (<a href="https://github.com/amb26/papers/tree/master/onward-2016">PDF of paper</a> is in github). The application demonstrates two major structural points - 
+    This example application accompanies our paper submitted for Onward '16 (<a href="https://github.com/amb26/papers/tree/master/onward-2016">PDF of paper</a> and <a href="https://github.com/fluid-studios/infusion-onward-video-example">application source</a> are in github). The application demonstrates two major structural points - 
     <ul><li>That the code performing the three adaptations is isolated from the main application, as well as mutually isolated (see the implementation files <a href="src/js/colourblind.js">colourblind.js</a>, 
     <a href="src/js/src/js/australian.js">src/js/australian.js</a>
      and <a href="src/js/antarctic.js">antarctic.js</a>). These are combined using the <strong>program addition operator</strong><img style="vertical-align:middle" width="25" height="25" src="src/images/circleplus.png" alt="circleplus" />(see paper section 5.1)
     <li>That the application runs at framerate with small demands on everyday equipment, with communication between the separated processes (JavaScript and a WebGL shader) mediated by a state transfer idiom (see paper section 7.2)
     </li>
-    </ul> 
+    </ul>
+    <p>Note that the adaptations provided in the "Australian" context are a subset of those provided in the "Antarctic" context. This is by design as described in the model for this sample, taken from <a href="http://dl.acm.org/citation.cfm?id=2661147">Korz: Simple, Symmetric, Subjective, Context-Oriented Programming</a> by Ungar, Ossher and Kimelman.</p>
+    <p>This sample runs well in a browser with full support for the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API">WebGL API</a> (current versions of Firefox and Chrome). Support for WebGL in Safari and Internet Explorer is not currently adequate.</p> 
     <div class="button-container">
 	    <span class="button colourblind">
 	        <a href="#">Colour Blind</a>
@@ -40,12 +42,13 @@
 	    </span>
     </div>
         <div class="onward-video-container aconite-video-container">
+            <div class="stream-label">Adapted stream:</div>
             <canvas class="aconite-animator-canvas" width="1280" height="720">
             </canvas>
+            <div class="stream-label">Original stream:</div>
             <video src="Nora%20The%20Piano%20Cat%201-19-16.mp4">
             </video>
         </div>
-
         <script>
             onward.videoProcessor(".onward-video-container");
         </script>
