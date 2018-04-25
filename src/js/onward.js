@@ -36,7 +36,7 @@
             "{that}.button.model.pressed": [{
                 namespace: "toggleAdaptation",
                 funcName: "onward.toggleAdaptationContext",
-                args: ["{change}.value", "{onward.adaptation}.options.contextGrade"]
+                args: ["{change}.value", "{that}.options.contextGrade"]
             }, {
                 namespace: "notifyContextChange", // TODO: Future versions of the framework will do this automatically (FLUID-5884)
                 func: "{onward.videoProcessor}.events.onContextChange.fire"
