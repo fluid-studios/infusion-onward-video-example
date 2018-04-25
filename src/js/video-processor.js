@@ -9,7 +9,7 @@
     };
     
     fluid.defaults("onward.videoProcessor", {
-        gradeNames: ["aconite.animator"],      
+        gradeNames: ["aconite.animator", "fluid.decoratorViewComponent"],
 
         model: {
             colourMatrix: "@expand:onward.identityMat3()",
@@ -42,6 +42,15 @@
                         "onCreate.pushCoordinates": "onward.pushMatrix({onward.videoProcessor}, coordinateMatrix, {that}.coordinateMatrix)" 
                     }
                 }
+            },
+            playButton: {
+                type: "fluid.button",
+                container: "{videoProcessor}.dom.playButton",
+                options: {
+                    modelListeners: {
+                        pressed: "onward.playButtonPressed({videoProcessor}, {change}.value)"
+                    }
+                }
             }
         },
 
@@ -55,13 +64,19 @@
             onContextChange: null
         },
 
+        selectors: {
+            playButton: ".button.play"
+        },
+
         listeners: {
-            onAllReady: [
-                "{that}.play()",
-                "{layer}.play()"
-            ]
+            "onPlay.playLayer": "{layer}.play()",
+            "onPause.pauseLayer": "{layer}.pause()"
         }
     });
+
+    onward.playButtonPressed = function (videoProcessor, newValue) {
+        videoProcessor.events[newValue ? "onPlay" : "onPause"].fire();
+    };
 
     fluid.defaults("onward.videoProcessor.videoPlayer", {
         gradeNames: "aconite.videoPlayer.nativeElement",
